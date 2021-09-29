@@ -1,14 +1,15 @@
-var express = require("express");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var indexRouter = require("./routes/index");
-var app = express();
+import logger from 'morgan';
+import express from 'express';
+import cookieParser from 'cookie-parser';
+import todoRouter from './routes/todos.js';
 
-app.use(logger("dev"));
+const app = express();
+
+app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/", indexRouter);
+app.use('/', todoRouter);
 
-module.exports = app;
+export default app;
