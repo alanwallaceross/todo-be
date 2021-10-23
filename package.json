@@ -9,7 +9,8 @@
     "startdev": "nodemon --exec babel-node ./src/bin/www",
     "lint": "eslint . --ext .js",
     "pretty": "prettier --write \"./src/**/*.js\"",
-    "postpretty": "npm run lint --fix"
+    "postpretty": "npm run lint --fix",
+    "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha -r @babel/register"
   },
   "dependencies": {
     "@babel/cli": "^7.15.7",
