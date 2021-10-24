@@ -1,10 +1,8 @@
 import express from 'express';
-import { testEnvironmentVariable } from '../settings.js';
+import { todoPage } from '../controllers/index.js';
 
 const todoRouter = express.Router();
 
-todoRouter.get('/todos', (req, res) =>
-  res.status(200).json({ message: 'Todo Router', env: testEnvironmentVariable })
-);
+todoRouter.get('/', todoPage);
 
 export default todoRouter;
